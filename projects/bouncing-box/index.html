@@ -31,26 +31,48 @@
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
 		(function(){
-			'use strict'
+			'use strict';
 			/* global &*/
-
+			
 			// jQuery stuff setup for you
 			var box = $('.box');
 			var boardWidth = $('.board').width();
 	
 			// TODO 2 - Variable declarations 
+			// TODO 2
+var position;
+var points;
+var speed;
+
+position = 0;
+points = 0;
+speed = 10;
+			var direction;
+direction = 1;
+box.css('left', position);
+box.text(points); 
 
 			
 			var update = function() {
 				// TODO 3 / 6 / 7 / 8
-				
+				position = position + (speed * direction);
+				box.css('left', position);
+				if(position > boardWidth) {
+    				direction = -1;
+				}
+				if(position < 1){
+					direction = 1
+				}
 			};
 
 
 			
 			var handleBoxClick = function() {
 				// TODO 4 / 5
-				
+				position = 0; 
+				 speed = speed + 3;
+				 points = points + 1;
+				 speed = speed + 3;
 			};
 
 
